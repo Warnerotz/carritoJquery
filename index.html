@@ -9,77 +9,351 @@ si pongo display inline en el juego donde se va el fondo? mejor inline o mejor b
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" title="normal" href="css/iziModal.min.css" type="text/css" media="screen" />
+
+    <!--    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.0/fullcalendar.print.css">-->
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.0/fullcalendar.min.css">
+
+
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
 
 
 
-    <!--Bootstrap-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
-    <!-- --------------------------------------------------  -->
-    <!--    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>-->
-    <script type="text/javascript" src="js/codigo.js">
-    </script>
-
-    <title>Carrito</title>
+    <title>Panel Admin</title>
 </head>
 
 <body>
-    <form name='formulario' id="form">
-        <div class="form-group">
-            <label for='nombre'>Nombre: </label><br />
-            <input type='text' name='nombre' required value='' />
+<!--
+    <header id="cabecera" class="jumbotron jumbotron-full">
+        <h1>Panel Administración</h1>
+
+    </header>
+-->
+    <nav>
+        <div class="igualar row ">
+            <div class="botonNav col col-md-3 col-12">
+                <a id="btnComida" class="btn btn-success botonPanel">Comida</a>
+            </div>
+            <div class="botonNav col col-md-3 col-12">
+                <a id="btnPedidos" class="btn btn-success botonPanel">Pedidos</a>
+            </div>
+
+            <div class="botonNav col col-md-3 col-12">
+                <a id="btnReservas" class="btn btn-success botonPanel">Reservas</a>
+            </div>
+
+            <div class="botonNav col col-md-3 col-12">
+                <a id="btnOrdenadores" class="btn btn-success botonPanel">Ordenadores</a>
+            </div>
+
         </div>
-        <div class="form-group">
-            <label for='apellido'>Apellido: </label><br />
-            <input type='text' name='apellido' required value='' />
+    </nav>
+    <!-- SECCION PARA PESTAÑA COMIDA-->
+    <section id="comida">
+        <div class="container-fluid">
+            <div class="row text-uppercase">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-dark  text-center">
+                        <thead>
+                            <tr>
+                                <th colspan="4" class="text-center">COMIDA</th>
+                            </tr>
+                            <tr>
+                                <th class="text-center ordCom" ><span class="fa fa-sort spanOrd" aria-hidden="true"></span>Comida</th>
+                                <th class="text-center">Obervación</th>
+                                <th class="text-center ordMesa"><span class="fa fa-sort spanOrd" aria-hidden="true"></span>Mesa</th>
+                                <th class="text-center">Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbodyComida">
+                            <tr id="f1" class="display-4">
+                                <td class="align-middle">Nashor</td>
+                                <td class="align-middle">Sin cebolla</td>
+                                <td class="align-middle">Mesa 10</td>
+                                <td>
+                                    <button type="button" class="preparado btn btn-block">Preparando </button>
+                                    <button type="button" class="listo btn btn-block" data-fila="f1">Listo</button>
+                                </td>
+                            </tr>
+                            <tr id="f2" class="display-4">
+                                <td class="align-middle">Nashor</td>
+                                <td class="align-middle">Extra de carne</td>
+                                <td class="align-middle">Mesa 2</td>
+                                <td>
+                                    <button type="button" class="preparado btn btn-block">Preparando</button>
+                                    <button type="button" class="listo btn btn-block" data-fila="f2">Listo</button>
+                                </td>
+                            </tr>
+                            <tr id="f3" class="display-4">
+                                <td class="align-middle">Merci</td>
+                                <td class="align-middle"></td>
+                                <td class="align-middle">Mesa 10</td>
+                                <td>
+                                    <button type="button" class="preparado btn btn-block">Preparando</button>
+                                    <button type="button" class="listo btn btn-block" data-fila="f3">Listo</button>
+                                </td>
+                            </tr>
+                            <tr id="f4" class="display-4">
+                                <td class="align-middle">Merci</td>
+                                <td class="align-middle">Sin champiñones</td>
+                                <td class="align-middle">Mesa 2</td>
+                                <td>
+                                    <button type="button" class="preparado btn btn-block">Preparando</button>
+                                    <button data-fila="f4" type="button" class="listo btn btn-block">Listo</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
         </div>
-        <div class="form-group">
-            <input type="radio" id="generoM" name="genero" value="hombre" />
-            <label for="genderM">hombre</label>
-            <input type="radio" id="generoF" name="genero" value="mujer" />
-            <label for="generoF">Mujer</label>
-            <p class="error" id="errorRadio"></p>
+    </section>
+    <!-- -----------------------------  -->
+    <section id="pedidos" class="ocultar">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 col-12 text-uppercase">
+                    <img class="imgBotella my-2 d-none d-md-block" src="img/soda.svg">
+
+                    <table class="table table-bordered table-dark  text-center">
+                        <thead>
+                            <tr>
+                                <th class="text-center"><i class="cruz fa fa-times fa-2x" aria-hidden="true"></i>Mesa 10</th>
+                                <th class="text-center">Cantidad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Cocacola</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>Cocacola Zero</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>Cerveza</td>
+                                <td>3</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="col-md-6 col-12 text-uppercase">
+                    <img class="imgBotella my-2 d-none d-md-block" src="img/hamburguesa.svg">
+
+                    <table id="tabla1" class="table  table-bordered table-dark text-center">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Mesa 10</th>
+                                <th class="text-center">Cantidad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Nashor No quiero cebolla</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>Mercy</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Precio total 15€</td>
+
+                            </tr>
+                            <tr>
+                                <td colspan="2"><button id="pagar1" type="button" class="btn pagar" data-tabla="tabla1">pagar</button></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-12 text-uppercase">
+                    <table class="table table-bordered table-dark text-center">
+                        <thead>
+                            <tr>
+                                <th class="text-center"><i class="cruz fa fa-times fa-2x" aria-hidden="true"></i>Mesa 2</th>
+                                <th class="text-center">Cantidad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Cocacola</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>Cocacola Zero</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>Cerveza</td>
+                                <td>3</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+                <div class="col-md-6 col-12 text-uppercase">
+                    <table id="tabla2" class="table table-bordered table-dark  text-center">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Mesa 2</th>
+                                <th class="text-center">Cantidad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Nashor extra carne</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td>Mercy sin champiñones</td>
+                                <td>1</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Precio total 15€</td>
+
+                            </tr>
+                            <tr>
+                                <td colspan="2"><button id="pagar2" type="button" class="pagar btn" data-tabla="tabla2">pagar</button></td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+
+
         </div>
-        <div class="form-group">
-            <label for='email'>Email: </label><br />
-            <input type='email' name='email' required value='' />
-        </div>
-        <div class="form-group">
-            <label for='fecha'>Fecha nacimiento (yyyy-mm-dd): </label><br />
-            <input type='date' name='fecha' value='' required pattern='[0-9]{4}-(0[1-9]|1[012])-(0[1-9]|1[0-9]|2[0-9]|3[01])' />
-        </div>
-        <div id="unCheck">
-            <h2>Selecciona solo una opcion</h2>
-            <input id="element_2_1" name="checkUno" class="element checkbox" type="checkbox" value="3">
-            <label class="choice">Estudio porque quiero aprender, formarme, y acceder a estudios superiores para tener un buen trabajo en el futuro, por tanto me esfuerzo mucho y mi rendimiento académico es bueno y saco buenas notas.</label><br>
-            <input id="element_2_2" name="checkUno" class="element checkbox" type="checkbox" value="3">
-            <label class="choice">Estoy estudiando porque creo que es la única manera de mejorar la posición social y económica de mi familia, por eso me esfuerzo por conseguir unas buenas calificaciones.</label>
-            <p class="error" id='errorUnCheck'></p>
+    </section>
+    <section id="reservas" class="ocultar container mt-3">
+        <div id="calendario" class="calendar"></div>
+
+
+    </section>
+
+    <section id="ordenadores" class="ocultar">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-dark  text-center">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Equipo</th>
+                                <th>Matenimiento</th>
+                                <th>Estado</th>
+                                <th>Tiempo de uso</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody id="cuerpoTabOrd">
+                            
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
 
         </div>
 
-        <div id="CheckMultiple">
-            <h2>Selecciona 3 opciones</h2>
-            <input id="element_5_1" name="checkMultiple" class="element checkbox" type="checkbox" value="1">
-            <label class="choice">Meticuloso, perfeccionista, exhaustivo,</label><br>
-            <input id="element_5_2" name="checkMultiple" class="element checkbox" type="checkbox" value="2">
-            <label class="choice">Humanitario, paciente,</label><br>
-            <input id="element_5_3" name="checkMultiple" class="element checkbox" type="checkbox" value="3">
-            <label class="choice">Creativo, imaginativo,</label><br>
-            <input id="element_5_4" name="checkMultiple" class="element checkbox" type="checkbox" value="4">
-            <label class="choice">Habilidoso en las tareas manuales,</label><br>
-            <p class="error" id='errorcheckMult'></p>
+
+
+
+
+
+    </section>
+
+    <div id="modalPago" class="ocultar">
+        <div class="row">
+            <div class="col-md-12 mt-2  text-center">
+                <p>Confirmar</p>
+
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-md-6 text-right">
+                <button type="button" class="btn btn-success btn-small">Confirmar</button>
+            </div>
+            <div class="col-md-6">
+                <button type="button" class="btn btn-danger btn-small" data-iziModal-close>Cancelar</button>
+            </div>
 
         </div>
+    </div>
+    <div id="modalMantenimineto" class="ocultar">
+        <div class="row">
+           <div class="table-responsive">
+               <table id="tablaMant" class="table  table-bordered table-dark text-center">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Usuario</th>
+                                <th class="text-center">Hora Inicio</th>
+                                <th class="text-center">Hora fin</th>
+                                <th class="text-center">Precio</th>                                 
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Rubos8</td>
+                                <td>10:00</td>
+                                <td>14:00</td>
+                                <td>6€</td>
+                            </tr>
+                            <tr>
+                                <td>Warne</td>
+                                <td>17:00</td>
+                                <td>23:00</td>
+                                <td>10€</td>
+                            </tr>                            
+                        </tbody>
+                    </table>
+           </div>
+            
+            
+        </div>
+        
+    </div>
+
+    <!-- --------------------------------------------------  -->
+
+    <!--SCRIPTS -->
+    <script type="text/javascript" src="js/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 
 
-        <input type='submit' id="validar" value='valida' />
-    </form>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.8.0/fullcalendar.min.js">
+    </script>
+    <script src="js/iziModal.js" type="text/javascript"></script>
+    <script type="text/javascript" src="js/datosPrueba.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/listareservas.js"></script>
+    <script src="js/datosComidas.js"></script>
+    <script type="text/javascript" src="js/codigo.js"></script>
+    
+
 
 </body>
 

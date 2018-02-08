@@ -1,12 +1,74 @@
-body 
-{
-	font-family: Arial, "Free Sans";
-	margin: 0;
-	padding: 0;
+body{
+    background-color: dimgray;
+}
+#cabecera{
+    background-color: lightcoral;
+    text-align: center;
+    margin-bottom: 0;
 }
 
-.error{
-    color:red;
+.botonNav{
+    padding: 0 !important;
+}
+
+.botonPanel{    
+    width: 100%;
+    height: 150px;
+    font-size: 35px;
+    border-radius: 0 !important;
+    border: 1px solid black !important;
+    padding-top: 5% !important;
     font-weight: bold;
     
+}
+.igualar{
+    width: 100%;
+    margin: 0;
+    
+}
+
+.pagar{
+    width: 20%;
+    
+}
+
+.ocultar{
+    display: none;
+    
+}
+
+.cruz{
+    color:white;
+    position:relative;
+    left:-30%;
+        
+}
+
+.imgBotella{
+    width: 7%;
+        margin-left: 46%;
+}
+
+span.spanOrd{
+    margin-right: 2%;
+    
+}
+    
+#calendario{
+    background-color: white;
+    
+}
+
+#retrocederFecha{
+    width: 150px;
+    margin-right: 5%;
+}
+#avanzaFecha{
+    width: 150px;
+    margin-left: 5%;
+    
+}
+
+.red{
+    background-color: red;
 }
